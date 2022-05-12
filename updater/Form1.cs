@@ -37,7 +37,7 @@ namespace updater
             WebClient wc = new WebClient();
             wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
             wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
-            wc.DownloadFileAsync(new Uri("https://www.twitch.tv/"), downloadPath);
+            wc.DownloadFileAsync(new Uri(Program.appName), downloadPath);
         }
 
         private void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
