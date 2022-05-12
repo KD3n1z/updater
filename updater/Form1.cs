@@ -25,10 +25,10 @@ namespace updater
         private void Form1_Load(object sender, EventArgs e)
         {
             label1.Text = label1.Text.Replace("%app", Program.appName);
-            new Thread(BeginUpdating).Start();
+            new Thread(BeginUpdate).Start();
         }
 
-        void BeginUpdating()
+        void BeginUpdate()
         {
             for(int i = 3; i > 0; i--)
             {
@@ -50,6 +50,8 @@ namespace updater
                 SetStatus("closing in " + i + "...");
                 Thread.Sleep(1000);
             }
+
+            Application.Exit();
         }
 
         void SetStatus(string text)
