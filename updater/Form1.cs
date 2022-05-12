@@ -36,29 +36,14 @@ namespace updater
                 Thread.Sleep(1000);
             }
             WebClient wc = new WebClient();
-            wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
-            wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
-            wc.DownloadFileAsync(new Uri(Program.appName), downloadPath);
-        }
-
-        private void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
+            SetStatus("downloading...");
+            wc.DownloadFile(Program.appName, downloadPath);
             SetStatus("deleting " + Path.GetFileName(Program.path) + "...");
             File.Delete(Program.path);
             SetStatus("replacing " + Path.GetFileName(Program.path) + "...");
             File.Move(downloadPath, Program.path);
             SetStatus("done, starting " + Program.appName + "...");
             Process.Start(Program.path);
-        }
-
-        private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            progressBar1.Invoke(new MethodInvoker(() =>
-            {
-                progressBar1.Value = e.ProgressPercentage;
-            }));
-
-            SetStatus("downloaded " + (e.BytesReceived / 1024) + "/" + (e.TotalBytesToReceive / 1024) + "KB");
         }
 
         void SetStatus(string text)

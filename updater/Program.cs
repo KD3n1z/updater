@@ -9,8 +9,8 @@ namespace updater
     internal static class Program
     {
         public static string appName = "?";
-        public static string url;
-        public static string path;
+        public static string url = "?";
+        public static string path = "?";
 
         /// <summary>
         /// Главная точка входа для приложения.
