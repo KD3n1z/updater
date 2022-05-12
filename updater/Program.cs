@@ -9,8 +9,8 @@ namespace updater
     internal static class Program
     {
         public static string appName = "?";
-        public static string url = "?";
-        public static string path = "?";
+        public static string url = "https://github.com/KD3n1z/ProcessInfo/releases/download/build4/ProcessInfo.exe";
+        public static string path = @"C:\Users\shu\source\repos\ProcessInfo\ProcessInfo\bin\Debug\ProcessInfo.exe";
 
         /// <summary>
         /// Главная точка входа для приложения.

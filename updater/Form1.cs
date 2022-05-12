@@ -37,13 +37,19 @@ namespace updater
             }
             WebClient wc = new WebClient();
             SetStatus("downloading...");
-            wc.DownloadFile(Program.appName, downloadPath);
+            wc.DownloadFile(Program.url, downloadPath);
             SetStatus("deleting " + Path.GetFileName(Program.path) + "...");
             File.Delete(Program.path);
             SetStatus("replacing " + Path.GetFileName(Program.path) + "...");
             File.Move(downloadPath, Program.path);
             SetStatus("done, starting " + Program.appName + "...");
             Process.Start(Program.path);
+
+            for (int i = 3; i > 0; i--)
+            {
+                SetStatus("closing in " + i + "...");
+                Thread.Sleep(1000);
+            }
         }
 
         void SetStatus(string text)
