@@ -24,9 +24,9 @@ namespace updater
                 {
                     url = arg.Remove(0, "url=".Length);
                 }
-                else if (arg.StartsWith("name="))
+                else if (arg.StartsWith("app="))
                 {
-                    appName = arg.Remove(0, "name=".Length);
+                    appName = arg.Remove(0, "app=".Length);
                 }
                 else if (arg.StartsWith("path="))
                 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace updater
             SetStatus("replacing " + Path.GetFileName(Program.path) + "...");
             File.Move(downloadPath, Program.path);
             SetStatus("done, starting " + Program.appName + "...");
+            Process.Start(Program.path);
         }
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
